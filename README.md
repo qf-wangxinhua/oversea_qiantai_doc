@@ -15,11 +15,11 @@
 	* [2.3. /trade/v1/refund 退款](#23-tradev1refund-退款)
 	* [2.4. /trade/v1/query 查询订单信息](#24-tradev1query-查询订单信息)
 * [3. OAuth 授权接口](#3-oauth-授权接口)
-	* [3.1. /oauth/v2/authorize](#31-oauthv2authorize)
-	* [3.2. /oauth/v2/access_token](#32-oauthv2access_token)
+	* [3.1. /oauth/v2/authorize 用户授权](#31-oauthv2authorize-用户授权)
+	* [3.2. /oauth/v2/access_token 获取/刷新 access_token](#32-oauthv2access_token-获取刷新-access_token)
 * [4. OAuth 查询接口](#4-oauth-查询接口)
-	* [4.1. /user/v1/baseinfo](#41-userv1baseinfo)
-	* [4.2. /user/v1/tradelist](#42-userv1tradelist)
+	* [4.1. /user/v1/baseinfo 获取用户信息](#41-userv1baseinfo-获取用户信息)
+	* [4.2. /user/v1/tradelist 获取订单信息](#42-userv1tradelist-获取订单信息)
 
 ---
 
