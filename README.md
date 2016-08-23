@@ -29,9 +29,49 @@
 
 1. 根据各接口文档, 使用 GET 或 POST 方式请求. 对注册, 补件等需要上传文件的接口, Content-Type 需设置为 `multipart/form-data`.
 2. 如无特殊说明, 所有请求均应加上以下 HTTP 头:
-    - `X-QF-APPCODE`: 分配给开发者的 `appcode`.
-    - `X-QF-SIGN`: 数据签名.
-3. 数据签名的计算方式: 将所有请求参数 (文件除外) 按照字典序排序, 并拼装成 `a=1&b=2` 的格式, 再在最后拼接上事先分配的 `appkey`, 并计算 MD5 得到签名.
+    - X-QF-APPCODE: 分配给开发者的 `appcode`.
+    - X-QF-SIGN: 数据签名.
+3. 数据签名的计算方式: 将所有请求参数 (文件除外) 按照字典序排序, 并拼装成 `a=1&b=2` 的格式, 再在最后拼接上事先分配的 `appkey`, 并计算 MD5 得到签名. 如对于请求数据:
+
+    ```
+    {
+        "username": "some_user",
+        "mobile": "14401234567",
+        "email": "email@example.com",
+        "idnumber": "110000201608220123",
+        "name": "测试企业",
+        "country": "中国",
+        "city": "成都",
+        "address": "XX区XX路XX号",
+        "shopname": "XX商店",
+        "bankuser": "王",
+        "bankaccount": "1234567890",
+        "bankcountry": "中国",
+        "bankcity": "成都",
+        "bankname": "中国建设银行",
+        "bankcode": "123",
+        "mcc_id": "6125485337528623306",
+        "channel_type": "1",
+        "licenseactive_date": "2016-07-10",
+        "licensenumber": "12345678",
+        "bankaddr": "银行详细地址",
+        "bankswiftcode": "001"
+    }
+    ```
+
+    按照字典序拼好后为
+
+    ```
+    address=XX区XX路XX号&bankaccount=1234567890&bankaddr=银行详细地址&bankcity=成都&bankcode=123&bankcountry=中国&bankname=中国建设银行&bankswiftcode=001&bankuser=王&channel_type=1&city=成都&country=中国&email=email@example.com&idnumber=110000201608220123&licenseactive_date=2016-07-10&licensenumber=12345678&mcc_id=6125485337528623306&mobile=14401234567&name=测试企业&shopname=XX商店&username=some_user
+    ```
+
+    假设 `appkey` 为 789012, 则待签名字符串为
+
+    ```
+    address=XX区XX路XX号&bankaccount=1234567890&bankaddr=银行详细地址&bankcity=成都&bankcode=123&bankcountry=中国&bankname=中国建设银行&bankswiftcode=001&bankuser=王&channel_type=1&city=成都&country=中国&email=email@example.com&idnumber=110000201608220123&licenseactive_date=2016-07-10&licensenumber=12345678&mcc_id=6125485337528623306&mobile=14401234567&name=测试企业&shopname=XX商店&username=some_user789012
+    ```
+
+    计算出的签名为 `E019253E135863C335333C983DF05359`.
 
 ### 0.2. OAuth 2.0 接口
 
@@ -45,7 +85,9 @@
 
 ### 1.1. /mch/v1/signup 注册接口
 
-注册子商户接口, 调用成功后会返回子商户 id `mchid`, 在调用其它接口时可以传入 `mchid`, 即视为以子商户身份调用该接口.
+注册子商户接口, 调用成功后会返回子商户 id `mchid`, 通过审核后可以使用子商户进行收款.
+
+子商户默认登录密码为身份证号后 6 位.
 
 - POST
 
