@@ -111,7 +111,7 @@
     | bankcode           | 开户行编号         | 必填     |      | 123                 |
     | bankswiftcode      | 联行号             |          |      | 456                 |
     | mcc_id             | 商户类别 id        | 必填     |      | 6125485337528623306 |
-    | legalperson        | 法人姓名           |          |      | 王某某              |
+    | legalperson        | 法人姓名           | 必填     |      | 王某某              |
     | channel_type       | 渠道 ID            | 必填     |      |                     |
     | email              | 邮箱               | 必填     |      | mail@example.com    |
     | mobile             | 手机号             | 必填     |      | 14412345678         |
