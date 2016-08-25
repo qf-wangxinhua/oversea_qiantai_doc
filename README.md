@@ -9,6 +9,7 @@
 	* [1.1. /mch/v1/signup 注册接口](#11-mchv1signup-注册接口)
 	* [1.2. /mch/v1/uploadcert 补件](#12-mchv1uploadcert-补件)
 	* [1.3. /mch/v1/query 查询用户信息](#13-mchv1query-查询用户信息)
+	* [1.4. /tool/v1/mcc mcc 列表接口](#14-toolv1mcc-mcc-列表接口)
 * [2. 支付接口](#2-支付接口)
 	* [2.1. /trade/v1/payment 支付接口](#21-tradev1payment-支付接口)
 	* [2.2. /trade/v1/close 关闭订单](#22-tradev1close-关闭订单)
@@ -201,7 +202,7 @@
     }
     ```
 
-### 1.4 /tool/v1/mcc mcc 列表接口
+### 1.4. /tool/v1/mcc mcc 列表接口
 
 该接口可以直接 HTTP GET 访问, 无需附加参数及签名.
 
