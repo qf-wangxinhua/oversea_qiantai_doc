@@ -36,7 +36,6 @@
 
 - appcode: 开发者唯一标示.
 - appkey: 开发者密钥, 调用除 SDK 接口外的其它接口时使用, 包括退款, 冲正及 OAuth 获取 access_token 等.
-- sdkkey: 客户端 SDK 使用的签名密钥, 仅用于预下单及查询订单状态等操作.
 
 ### 0.1. 非 OAuth 2.0 接口
 
