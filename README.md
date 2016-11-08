@@ -1,6 +1,6 @@
 # 海外钱台接口文档
 
-**版本: 2016-11-02**
+**版本: 2016-11-08**
 
 * [0. 请求方式](#0-请求方式)
 	* [0.0. 名词解释](#00-名词解释)
@@ -88,9 +88,9 @@
 
 ### 0.2. OAuth 2.0 接口
 
-1. 按照标准 OAuth 流程, 将用户重定向到 `/oauth/v2/authorize` 接口, 并需带上 `appid`, `scope` 和 `redirect_uri` 等参数.
+1. 按照标准 OAuth 流程, 将用户重定向到 `/oauth/v2/authorize` 接口, 并需带上 `response_type`, `client_id`, `scope` 和 `redirect_uri` 等参数. 目前 `client_id` 与 `appcode` 保持一致.
 2. 用户确认授权后, 会将用户再重定向到 `redirect_uri`, 并附带 `code` 参数.
-3. 使用 `code` 获取 `access_token`.
+3. 使用 `code` 调用 `/oauth/v2/access_token` 接口获取 `access_token`.
 
 ---
 
