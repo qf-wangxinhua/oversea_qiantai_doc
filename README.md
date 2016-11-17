@@ -553,9 +553,9 @@
 
 ---
 
-## 6. 清算查询接口
+## 5. 清算查询接口
 
-### 6.1 /settlement/v1/query
+### 5.1 /settlement/v1/query
 
 - GET
 
